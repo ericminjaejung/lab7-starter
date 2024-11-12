@@ -42,8 +42,5 @@ int main() {
     }
     free(a.contents);
 
-    for (int i = 0; i < b.size; i += 1) {
-        free(b.contents[i].contents);
-    }
     free(b.contents);
 }

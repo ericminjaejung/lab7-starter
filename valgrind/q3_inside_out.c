@@ -2,11 +2,11 @@
 
 // Function to free the list and its contents
 void buggy_freeListAndContents(List a) {
-    free(a.contents); 
-
     for (int i = 0; i < a.size; i += 1) {
         free(a.contents[i].contents);
     }
+
+    free(a.contents);
 }
 
 int main() {

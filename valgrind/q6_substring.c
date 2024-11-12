@@ -9,17 +9,17 @@ String substring2(String s, int start, int end) {
     assert(start <= end);
     
     // Make a copy of s.contents for us to substringify
-    char* s_copy = malloc(s.length + 1);
-    strcpy(s_copy, s.contents);
-
     int new_length = end - start;
+    char* substring = malloc(new_length + 1);
 
-    // Get a pointer to substring at start index
-    char *substring_start = s_copy + start;
-    // Terminate our copy at index `end`
-    s_copy[end] = 0;
+    int i;
+    for (i = 0; i < new_length; ++i) {
+        substring[i] = s.contents[start + i];
+    }
 
-    String r = { new_length, substring_start };
+    substring[new_length] = '\0';
+    
+    String r = { new_length, substring};
     return r;
 }
 

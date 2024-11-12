@@ -6,6 +6,7 @@ void buggy_expandCapacity(List* a) {
     uint32_t new_cap = a->capacity * 2;
     String* new_ptr = calloc(new_cap, sizeof(String));
     memcpy(new_ptr, a->contents, a->size * sizeof(String));
+    free(a->contents);
 
     a->capacity = new_cap;
     a->contents = new_ptr;
@@ -37,5 +38,6 @@ int main() {
     for (int i = 0; i < a.size; i += 1) {
         free(a.contents[i].contents);
     }
+
     free(a.contents);
 }

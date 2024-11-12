@@ -6,7 +6,7 @@ String buggy_join(String strs[], int count, String delimiter) {
     // Start with an empty string
     char *new_contents = malloc(1);
     new_contents[0] = '\0';
-
+    
     for(int i = 0; i < count; i += 1) {
         // Hold onto old contents to copy over
         char *old_contents = new_contents;
@@ -26,6 +26,8 @@ String buggy_join(String strs[], int count, String delimiter) {
             strcpy(new_contents + total_length, delimiter.contents);
             total_length += delimiter.length;
         }
+
+        free(old_contents);
 
     }
 
